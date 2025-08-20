@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +18,7 @@
             line-height: 1.6;
             background-color: #f4f4f4;
             color: #333;
+            scroll-behavior: smooth;
         }
 
         header {
@@ -24,6 +26,9 @@
             color: #fff;
             text-align: center;
             padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         header h1 {
@@ -36,12 +41,71 @@
             display: flex;
             justify-content: center;
             gap: 30px;
+            margin-top: 10px;
         }
 
         nav a {
             color: #fff;
             text-decoration: none;
             font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Carrossel de Imagens */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            height: 400px;
+            margin: 0 auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.6s ease;
+            height: 100%;
+            width: 100%;
+        }
+
+        .carousel img {
+            min-width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Setas de navegação */
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: background-color 0.3s;
+        }
+
+        .carousel-arrow:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .arrow-left {
+            left: 15px;
+        }
+
+        .arrow-right {
+            right: 15px;
         }
 
         .banner {
@@ -49,6 +113,7 @@
             color: white;
             text-align: center;
             padding: 40px 20px;
+            margin-top: 20px;
         }
 
         .banner h2 {
@@ -56,14 +121,18 @@
             margin-bottom: 20px;
         }
 
-        .dicas, .ebooks, .coleta {
-            padding: 40px 20px;
+        .dicas,
+        .ebooks,
+        .coleta {
+            padding: 60px 20px;
             text-align: center;
         }
 
         .dicas ul {
             list-style-type: none;
             padding: 10px;
+            max-width: 600px;
+            margin: 20px auto;
         }
 
         .dicas li {
@@ -87,7 +156,7 @@
             border-radius: 8px;
             padding: 15px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 200px;
+            width: 280px;
             text-align: center;
         }
 
@@ -133,6 +202,7 @@
             background-color: rgba(0, 0, 0, 0.5);
             justify-content: center;
             align-items: center;
+            z-index: 1000;
         }
 
         .popup-content {
@@ -153,37 +223,82 @@
             cursor: pointer;
         }
 
+        /* Responsividade */
         @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
             .ebooks ul {
                 flex-direction: column;
                 align-items: center;
             }
+
+            .carousel-container {
+                height: 250px;
+            }
+
+            .carousel-arrow {
+                padding: 10px;
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+
+            .arrow-left {
+                left: 10px;
+            }
+
+            .arrow-right {
+                right: 10px;
+            }
         }
     </style>
 </head>
+
 <body>
 
-    <!-- Header -->
+    <!-- Header com links âncora -->
     <header>
         <h1>Conscientização Ambiental e Saúde Pública</h1>
         <nav>
             <ul>
-                <li><a href="#">Início</a></li>
-                <li><a href="#">E-books</a></li>
-                <li><a href="#">Pontos de Coleta</a></li>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#conteudos">Conteúdos</a></li>
+                <li><a href="#coleta">Pontos de Coleta</a></li>
                 <li><a href="#" onclick="mostrarPopup()">Dicas Rápidas</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Banner -->
-    <section class="banner">
+    <!-- Carrossel de Imagens de Sustentabilidade e Saúde -->
+    <div class="carousel-container">
+        <button class="carousel-arrow arrow-left" onclick="moverCarrossel(-1)">❮</button>
+        <div class="carousel" id="carousel">
+            <!-- Imagens reais e diretas -->
+            <img src="https://www.manaus.am.gov.br/wp-content/uploads/2022/09/Prefeitura-disponibiliza-36-pontos-de-coleta-seletiva-de-lixo-em-Manaus.jpg"
+                alt="Coleta seletiva em Manaus">
+            <img src="https://www.saneamentoambiental.com.br/sites/default/files/styles/image_in_article/public/2022-07/saude_e_meio_ambiente.webp?itok=QP17guBZ"
+                alt="Saúde e meio ambiente">
+            <img src="https://www.diagnosticosdobrasil.com.br/uploads/images/2024/06/dia-mundial-do-meio-ambiente-1717617234.jpg"
+                alt="Dia Mundial do Meio Ambiente">
+            <img src="https://mid-noticias.curitiba.pr.gov.br/2025/capa/00488457.jpg" alt="Energia solar em ação">
+            <img src="https://portalsustentabilidade.com/wp-content/webp-express/webp-images/uploads/2025/08/design-destaque-68-2048x1152.png.webp"
+                alt="Reciclagem e economia em saúde pública">
+        </div>
+        <button class="carousel-arrow arrow-right" onclick="moverCarrossel(1)">❯</button>
+    </div>
+
+    <!-- Seção Início -->
+    <section id="inicio" class="banner">
         <h2>Juntos podemos cuidar do planeta e melhorar a saúde pública</h2>
-        <p>Descubra como pequenas atitudes podem gerar grandes impactos positivos no meio ambiente e na saúde da comunidade.</p>
+        <p>Descubra como pequenas atitudes podem gerar grandes impactos positivos no meio ambiente e na saúde da
+            comunidade.</p>
     </section>
 
-    <!-- Dicas rápidas -->
-    <section class="dicas">
+    <!-- Seção Conteúdos -->
+    <section id="conteudos" class="dicas">
         <h2>Dicas Rápidas para um Mundo Sustentável</h2>
         <ul>
             <li>Reduza o uso de plásticos descartáveis.</li>
@@ -192,44 +307,48 @@
             <li>Prefira transporte público ou bicicletas ao invés de carros.</li>
             <li>Plante árvores e ajude a preservar áreas verdes.</li>
         </ul>
+
+        <h2 style="margin-top: 40px;">Conteúdos para Aprofundar Seu Conhecimento</h2>
+        <div class="ebooks">
+            <ul>
+                <li>
+                    <h3>Guia da Reciclagem Doméstica</h3>
+                    <p>Aprenda como separar e reciclar corretamente em casa.</p>
+                    <a href="https://pt.scribd.com/presentation/467700937/Reciclagem-Domestica"
+                        target="_blank">Consultar Conteúdo</a>
+                </li>
+                <li>
+                    <h3>Saúde Pública e Meio Ambiente</h3>
+                    <p>Entenda como o cuidado ambiental afeta nossa saúde.</p>
+                    <a href="https://pt.scribd.com/document/629039554/Saude-Publica-e-Meio-Ambiente"
+                        target="_blank">Consultar Conteúdo</a>
+                </li>
+                <li>
+                    <h3>Compostagem: Transformando Lixo em Riqueza</h3>
+                    <p>Descubra como a compostagem pode ser um aliado na redução de resíduos.</p>
+                    <a href="https://www.ifsc.edu.br/post-ifsc-verifica/-/asset_publisher/uII70Nv266Xk/content/id/13735672/reciclagem-e-reutiliza%C3%A7%C3%A3o-%C3%A9-poss%C3%ADvel-transformar-o-lixo-em-lucro"
+                        target="_blank">Consultar Conteúdo</a>
+                </li>
+            </ul>
+        </div>
     </section>
 
-    <!-- E-books para download -->
-    <section class="ebooks">
-        <h2>Conteúdos para Aprofundar Seu Conhecimento</h2>
-        <ul>
-            <li>
-                <h3>Guia da Reciclagem Doméstica</h3>
-                <p>Aprenda como separar e reciclar corretamente em casa.</p>
-                <a href="https://pt.scribd.com/presentation/467700937/Reciclagem-Domestica" target="_blank">Consultar Conteúdo</a>
-            </li>
-            <li>
-                <h3>Saúde Pública e Meio Ambiente</h3>
-                <p>Entenda como o cuidado ambiental afeta nossa saúde.</p>
-                <a href="https://pt.scribd.com/document/629039554/Saude-Publica-e-Meio-Ambiente" target="_blank">Consultar Conteúdo</a>
-            </li>
-            <li>
-                <h3>Compostagem: Transformando Lixo em Riqueza</h3>
-                <p>Descubra como a compostagem pode ser um aliado na redução de resíduos.</p>
-                <a href="https://www.ifsc.edu.br/post-ifsc-verifica/-/asset_publisher/uII70Nv266Xk/content/id/13735672/reciclagem-e-reutiliza%C3%A7%C3%A3o-%C3%A9-poss%C3%ADvel-transformar-o-lixo-em-lucro" target="_blank">Consultar Conteúdo</a>
-            </li>
-        </ul>
-    </section>
-
-    <!-- Mapa de pontos de coleta -->
-    <section class="coleta">
+    <!-- Seção Pontos de Coleta -->
+    <section id="coleta" class="coleta">
         <h2>Encontre Pontos de Coleta Próximos</h2>
         <div class="mapa-coleta">
-            <iframe src="https://www.reciclasampa.com.br/pontos-de-coleta" title="Pontos de Coleta" frameborder="0"></iframe>
+            <iframe src="https://www.reciclasampa.com.br/pontos-de-coleta" title="Pontos de Coleta"
+                frameborder="0"></iframe>
         </div>
     </section>
 
     <!-- Pop-up de Dicas Rápidas -->
     <div class="popup" id="popup">
         <div class="popup-content">
-            <h3>Saiba mais sobre a sustentabilidade</h3>
-            <p>Existem muitas ações que você pode tomar para ajudar a melhorar a saúde pública e o meio ambiente. Peque algumas ações como:</p>
-            <ul>
+            <h3>Saiba mais sobre sustentabilidade</h3>
+            <p>Existem muitas ações que você pode tomar para ajudar a melhorar a saúde pública e o meio ambiente.
+                Pequenas ações como:</p>
+            <ul style="text-align: left; margin: 15px 0;">
                 <li>Desligue as luzes quando não estiver usando.</li>
                 <li>Prefira produtos com embalagens recicláveis.</li>
                 <li>Consuma alimentos de forma consciente, sem desperdícios.</li>
@@ -253,7 +372,43 @@
         function fecharPopup() {
             document.getElementById('popup').style.display = 'none';
         }
+
+        // Carrossel automático e manual
+        const carousel = document.getElementById('carousel');
+        const images = carousel.children;
+        const totalImages = images.length;
+        let currentIndex = 0;
+
+        function moverCarrossel(direcao) {
+            currentIndex = (currentIndex + direcao + totalImages) % totalImages;
+            carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        // Muda de imagem a cada 4 segundos
+        setInterval(() => {
+            moverCarrossel(1);
+        }, 4000);
+
+        // Previne clique nas setas de interromper o carrossel automático
+        document.querySelector('.arrow-left').addEventListener('click', () => {
+            resetarIntervalo();
+        });
+        document.querySelector('.arrow-right').addEventListener('click', () => {
+            resetarIntervalo();
+        });
+
+        let autoSlide = setInterval(() => {
+            moverCarrossel(1);
+        }, 4000);
+
+        function resetarIntervalo() {
+            clearInterval(autoSlide);
+            autoSlide = setInterval(() => {
+                moverCarrossel(1);
+            }, 4000);
+        }
     </script>
 
 </body>
+
 </html>
