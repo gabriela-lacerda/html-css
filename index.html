@@ -438,6 +438,23 @@
             line-height: 1.6;
         }
 
+        .ebook-btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .ebook-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
+        }
+
         .recicla-section {
             background: linear-gradient(135deg, rgba(46, 204, 113, 0.05) 0%, rgba(52, 152, 219, 0.05) 100%);
             padding: 5rem 2rem;
@@ -535,7 +552,7 @@
                 font-size: 1.2rem;
             }
 
-            /* MUDANÇAS AQUI */
+            /* CORREÇÃO APLICADA AQUI */
             .nav-links {
                 position: absolute;
                 top: var(--navbar-height);
@@ -548,13 +565,13 @@
                 padding: 1rem 0;
                 box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
                 z-index: 999;
-                display: none; /* ESCONDE POR PADRÃO */
+                display: none; /* Esconde o menu por padrão */
             }
 
             .nav-links.active {
-                display: flex; /* MOSTRA QUANDO ATIVO */
+                display: flex; /* Mostra o menu quando o botão é clicado */
             }
-            /* FIM DAS MUDANÇAS */
+            /* FIM DA CORREÇÃO */
 
             .nav-links li {
                 width: 100%;
@@ -805,6 +822,7 @@
             <div class="ebook-content">
                 <h3>E-Lixo: reciclagem do livro eletrônico</h3>
                 <p>Sobre reciclagem de lixo eletrônico e equipamentos.</p>
+                <a href="https://dspace.unila.edu.br/bitstreams/ce09929d-80ea-4b0d-8033-68da8a4ea3ad/download" target="_blank" class="ebook-btn">Acessar PDF</a>
             </div>
         </div>
 
@@ -813,6 +831,7 @@
             <div class="ebook-content">
                 <h3>Resíduos Plásticos: capacitando a comunidade sobre reciclagem</h3>
                 <p>Documento de extensão sobre plástico e reciclagem.</p>
+                <a href="https://dspace.unila.edu.br/bitstreams/8c0b3da2-f067-494b-ae39-d726557edb1f/download" target="_blank" class="ebook-btn">Acessar PDF</a>
             </div>
         </div>
 
@@ -821,6 +840,7 @@
             <div class="ebook-content">
                 <h3>A coleta de reciclagem: um trabalho marginal ou um trabalho que ajuda?</h3>
                 <p>Análise sociológica e etnográfica do trabalho dos catadores.</p>
+                <a href="https://dspace.unila.edu.br/bitstreams/d504df61-33dd-4bb6-98dd-3f683f881711/download" target="_blank" class="ebook-btn">Acessar PDF</a>
             </div>
         </div>
 
@@ -829,6 +849,7 @@
             <div class="ebook-content">
                 <h3>Estudo de caso: reciclagem do óleo de cozinha</h3>
                 <p>Trabalho de caso sobre reciclagem de óleo de cozinha.</p>
+                <a href="https://dspace.unila.edu.br/bitstreams/981a6311-fc06-42ee-b44b-cedddb646924/download" target="_blank" class="ebook-btn">Acessar PDF</a>
             </div>
         </div>
 
@@ -837,6 +858,7 @@
             <div class="ebook-content">
                 <h3>Implantação de reciclagem de lixo em uma UAN</h3>
                 <p>Estudo de caso sobre reciclagem em ambiente institucional, município de Ijuí/RS.</p>
+                <a href="https://www.publicacoeseventos.unijui.edu.br/index.php/salaoconhecimento/article/view/16152/14834" target="_blank" class="ebook-btn">Acessar PDF</a>
             </div>
         </div>
 
@@ -845,6 +867,7 @@
             <div class="ebook-content">
                 <h3>Estudo dos benefícios e impactos da reciclagem dos resíduos da construção civil</h3>
                 <p>Pesquisa sobre reciclagem na construção civil.</p>
+                <a href="https://www.publicacoeseventos.unijui.edu.br/index.php/salaoconhecimento/article/view/3407/2812" target="_blank" class="ebook-btn">Acessar PDF</a>
             </div>
         </div>
 
@@ -853,15 +876,16 @@
             <div class="ebook-content">
                 <h3>Conhecimentos e práticas na coleta seletiva com perspectiva ao protagonismo do catador</h3>
                 <p>Livro digital da Editora IFCE sobre coleta seletiva e educação ambiental.</p>
+                <a href="https://editora.ifce.edu.br/index.php/edifce/catalog/view/25/20/837" target="_blank" class="ebook-btn">Acessar PDF</a>
             </div>
         </div>
 
-        ANBU-16
         <div class="ebook-card hidden">
             <img src="https://educacao.luziania.go.gov.br/ipheewee/2023/04/capa-e-contracapa-600x389.png" alt="Capa Mães Recicladoras x Esquadrão Poluente" class="ebook-image">
             <div class="ebook-content">
                 <h3>Mães Recicladoras x Esquadrão Poluente</h3>
                 <p>Livro infantil educativo sobre reciclagem e sustentabilidade.</p>
+                <a href="https://educacao.luziania.go.gov.br/ipheewee/2023/04/LIVRO-DIGITAL-MAES-RECICLADORAS-PT.pdf" target="_blank" class="ebook-btn">Acessar PDF</a>
             </div>
         </div>
 
@@ -870,6 +894,7 @@
             <div class="ebook-content">
                 <h3>A organização da reciclagem de materiais como prática à economia da sobrevivência</h3>
                 <p>Reflexões sobre reciclagem sob a ótica da economia de sobrevivência.</p>
+                <a href="https://www.publicacoeseventos.unijui.edu.br/index.php/salaoconhecimento/article/view/20958/19669" target="_blank" class="ebook-btn">Acessar PDF</a>
             </div>
         </div>
     </div>
